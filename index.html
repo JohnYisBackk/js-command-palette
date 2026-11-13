@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Command Palette PRO – A modern keyboard-first command launcher built with HTML, CSS, and Vanilla JavaScript."
+    />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- LUCIDE ICONS -->
+    <script
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+    <title>Command Palette</title>
+  </head>
+  <body>
+    <!-- ======================================================
+       BACKGROUND EFFECTS
+  ====================================================== -->
+
+    <div class="background-grid" aria-hidden="true"></div>
+    <div class="background-glow background-glow-one" aria-hidden="true"></div>
+    <div class="background-glow background-glow-two" aria-hidden="true"></div>
+    <div class="background-noise" aria-hidden="true"></div>
+
+    <!-- ======================================================
+       HEADER
+  ====================================================== -->
+
+    <header class="header">
+      <i data-lucide="command"></i>
+
+      <div class="header-content">
+        <h2>Command Palette</h2>
+        <p>Your workspace. One shortcut away.</p>
+      </div>
+
+      <nav class="nav">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#commands" class="nav-link">Commands</a>
+        <a href="#shortcuts" class="nav-link">Shortcuts</a>
+
+        <span class="app-version">v1.0</span>
+      </nav>
+    </header>
+
+    <!-- ======================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+    <main class="main">
+      <!-- ======================================================
+       HERO SECTION
+  ====================================================== -->
+
+      <section class="hero-section" id="commands">
+        <div class="hero-badge">
+          <i data-lucide="zap"></i>
+          <p>Productivity Tool</p>
+        </div>
+
+        <div class="hero-content">
+          <h1>
+            Command Palette <br />
+            for Your Workflow
+          </h1>
+          <p>
+            Find actions, navigate your workspace, <br />
+            and execute commands instantly with a single shortcut.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <button class="open-palette-btn" id="openPaletteBtn" type="button">
+            <i data-lucide="command"></i>
+            <p>Open Command Palette</p>
+            <span class="palette-shortcut">Ctrl + K</span>
+          </button>
+
+          <button class="info-btn" id="infoBtn" type="button">
+            <i data-lucide="arrow-right"></i>
+            <p>View Live Preview</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- ======================================================
+       COMMAND PALETTE PREVIEW
+  ====================================================== -->
+
+      <section class="palette-preview-section" id="palettePreview">
+        <div class="palette-preview-container">
+          <div class="palette-preview-window">
+            <!-- SEARCH HEADER -->
+
+            <div class="palette-search-header">
+              <div class="palette-search-icon">
+                <i data-lucide="search"></i>
+              </div>
+
+              <input
+                type="text"
+                class="palette-search-input"
+                id="previewSearchInput"
+                placeholder="Type a command or search..."
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Search commands"
+              />
+
+              <span class="palette-escape-key">ESC</span>
+            </div>
+
+            <!-- COMMANDS CONTENT -->
+
+            <div class="palette-commands" id="previewCommands">
+              <!-- NAVIGATION GROUP -->
+
+              <div class="palette-group">
+                <div class="palette-group-heading">
+                  <span>Navigation</span>
+                  <span class="palette-group-count">03</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="palette-command active"
+                  data-command="dashboard"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="layout-dashboard"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title">Go to Dashboard</span>
+                    <span class="palette-command-description">
+                      Navigate to your workspace
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>G</kbd>
+                    <kbd>D</kbd>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="palette-command"
+                  data-command="features"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="layout-grid"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title">Explore Features</span>
+                    <span class="palette-command-description">
+                      Discover what's possible
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>G</kbd>
+                    <kbd>F</kbd>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="palette-command"
+                  data-command="github"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="github"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title">Open GitHub</span>
+                    <span class="palette-command-description">
+                      Visit the developer's profile
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>G</kbd>
+                    <kbd>H</kbd>
+                  </span>
+                </button>
+              </div>
+
+              <div class="palette-group">
+                <div class="palette-group-heading">
+                  <span>Quick Actions</span>
+                  <span class="palette-group-count">03</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="palette-command"
+                  data-command="theme"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="moon"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title">Toggle Theme</span>
+                    <span class="palette-command-description">
+                      Switch between dark and light mode
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>T</kbd>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="palette-command"
+                  data-command="copy"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="copy"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title">Copy Current URL</span>
+                    <span class="palette-command-description">
+                      Copy the page link to clipboard
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>C</kbd>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="palette-command"
+                  data-command="shortcuts"
+                >
+                  <span class="palette-command-icon">
+                    <i data-lucide="keyboard"></i>
+                  </span>
+
+                  <span class="palette-command-info">
+                    <span class="palette-command-title"
+                      >Keyboard Shortcuts</span
+                    >
+                    <span class="palette-command-description">
+                      View available keyboard shortcuts
+                    </span>
+                  </span>
+
+                  <span class="palette-command-shortcut">
+                    <kbd>?</kbd>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div class="palette-empty-state" id="previewEmptyState" hidden>
+              <span class="palette-empty-icon">
+                <i data-lucide="search-x"></i>
+              </span>
+
+              <h3>No commands found</h3>
+              <p>Try searching for something else.</p>
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="palette-preview-footer">
+              <div class="palette-keyboard-hints">
+                <span class="palette-hint">
+                  <kbd>↑</kbd>
+                  <kbd>↓</kbd>
+                  Navigate
+                </span>
+
+                <span class="palette-hint">
+                  <kbd>↵</kbd>
+                  Select
+                </span>
+
+                <span class="palette-hint">
+                  <kbd>ESC</kbd>
+                  Close
+                </span>
+              </div>
+
+              <span class="palette-results-count" id="previewResultsCount">
+                6 commands
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+       FEATURES SECTION
+  ====================================================== -->
+      <section class="features-section" id="features">
+        <div class="features-cards">
+          <div class="features-card">
+            <i data-lucide="zap"></i>
+
+            <div>
+              <h3>Quick Access</h3>
+              <p>Execute common actions in seconds.</p>
+            </div>
+          </div>
+
+          <div class="features-card">
+            <i data-lucide="keyboard"></i>
+
+            <div>
+              <h3>Keyboard First</h3>
+              <p>Fully controllable with your keyboard.</p>
+            </div>
+          </div>
+
+          <div class="features-card">
+            <i data-lucide="sliders-horizontal"></i>
+
+            <div>
+              <h3>Custom Commands</h3>
+              <p>Extend and adapt to your workflow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================
+       COMMAND PALETTE MODAL
+  ====================================================== -->
+
+    <dialog class="command-palette-modal" id="commandPaletteModal">
+      <div class="palette-preview-window">
+        <div class="palette-search-header">
+          <span class="palette-search-icon">
+            <i data-lucide="search"></i>
+          </span>
+
+          <input
+            type="text"
+            class="palette-search-input"
+            id="commandSearchInput"
+            placeholder="Search for a command..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search commands"
+          />
+
+          <button
+            class="palette-escape-key"
+            id="closePaletteBtn"
+            type="button"
+            aria-label="Close command palette"
+          >
+            ESC
+          </button>
+        </div>
+
+        <div class="palette-commands" id="commandList">
+          <div class="palette-group">
+            <div class="palette-group-heading">
+              <span>Navigation</span>
+              <span class="palette-group-count">03</span>
+            </div>
+
+            <button
+              type="button"
+              class="palette-command active"
+              data-command="dashboard"
+            >
+              <span class="palette-command-icon">
+                <i data-lucide="layout-dashboard"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Go to Dashboard</span>
+                <span class="palette-command-description">
+                  Navigate to your workspace
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>G</kbd>
+                <kbd>D</kbd>
+              </span>
+            </button>
+
+            <button
+              type="button"
+              class="palette-command"
+              data-command="features"
+            >
+              <span class="palette-command-icon">
+                <i data-lucide="layout-grid"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Explore Features</span>
+                <span class="palette-command-description">
+                  Discover what's possible
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>G</kbd>
+                <kbd>F</kbd>
+              </span>
+            </button>
+
+            <button type="button" class="palette-command" data-command="github">
+              <span class="palette-command-icon">
+                <i data-lucide="github"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Open GitHub</span>
+                <span class="palette-command-description">
+                  Visit the developer's profile
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>G</kbd>
+                <kbd>H</kbd>
+              </span>
+            </button>
+          </div>
+
+          <div class="palette-group">
+            <div class="palette-group-heading">
+              <span>Quick Actions</span>
+              <span class="palette-group-count">03</span>
+            </div>
+
+            <button type="button" class="palette-command" data-command="theme">
+              <span class="palette-command-icon">
+                <i data-lucide="moon"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Toggle Theme</span>
+                <span class="palette-command-description">
+                  Switch between dark and light mode
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>T</kbd>
+              </span>
+            </button>
+
+            <button type="button" class="palette-command" data-command="copy">
+              <span class="palette-command-icon">
+                <i data-lucide="copy"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Copy Current URL</span>
+                <span class="palette-command-description">
+                  Copy the page link to clipboard
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>C</kbd>
+              </span>
+            </button>
+
+            <button
+              type="button"
+              class="palette-command"
+              data-command="shortcuts"
+            >
+              <span class="palette-command-icon">
+                <i data-lucide="keyboard"></i>
+              </span>
+
+              <span class="palette-command-info">
+                <span class="palette-command-title">Keyboard Shortcuts</span>
+                <span class="palette-command-description">
+                  View available keyboard shortcuts
+                </span>
+              </span>
+
+              <span class="palette-command-shortcut">
+                <kbd>?</kbd>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="palette-empty-state" id="commandEmptyState" hidden>
+          <span class="palette-empty-icon">
+            <i data-lucide="search-x"></i>
+          </span>
+
+          <h3>No commands found</h3>
+          <p>Try searching for something else.</p>
+        </div>
+
+        <div class="palette-preview-footer">
+          <div class="palette-keyboard-hints">
+            <span class="palette-hint">
+              <kbd>↑</kbd>
+              <kbd>↓</kbd>
+              Navigate
+            </span>
+
+            <span class="palette-hint">
+              <kbd>↵</kbd>
+              Select
+            </span>
+
+            <span class="palette-hint">
+              <kbd>ESC</kbd>
+              Close
+            </span>
+          </div>
+
+          <span class="palette-results-count" id="commandResultsCount">
+            6 commands
+          </span>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
