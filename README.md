@@ -6,7 +6,7 @@ Command Palette PRO provides a fast way to navigate a website, execute actions, 
 
 ## 🌐 Live Demo
 
-🚀 **[View Live Demo]()**
+🚀 **[View Live Demo](https://johnyisbackk.github.io/js-command-palette/)**
 
 ## 🖼️ Preview
 
